@@ -3,6 +3,7 @@
   "version": "1.10.1",
   "license": "MIT",
   "packageManager": "pnpm@9.15.2",
+  "type": "module",
   "author": {
     "name": "whitekite",
     "email": "1075790909@qq.com"
@@ -18,14 +19,14 @@
     "arco-pro",
     "arco-pro-vue"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "files": [
@@ -33,9 +34,9 @@
   ],
   "scripts": {
     "build": "automd && tsup-node",
-    "release": "vbumpp -r && pnpm build",
+    "release": "vbumpp && pnpm build",
     "update:deps": "taze major -w -i -a -r -f",
-    "clean:deps": "vfdel node_modules packages/*/node_modules playground/*/node_modules docs/node_modules",
+    "clean:deps": "vfdel **/node_modules",
     "force:clean:deps": "vfdel pnpm-lock.yaml && pnpm clean:deps",
     "force:install": "pnpm force:clean:deps && pnpm install"
   },
@@ -77,7 +78,6 @@
     "taze": "^0.18.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue": "^3.5.13"
   }
 }
