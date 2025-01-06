@@ -1,0 +1,81 @@
+{
+  "name": "@vrx-arco/helper",
+  "version": "1.10.1",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.2",
+  "author": {
+    "name": "whitekite",
+    "email": "1075790909@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrx-arco/arco-design-pro.git",
+    "directory": "packages/use"
+  },
+  "homepage": "https://vrx-arco.github.io/arco-design-pro/",
+  "keywords": [
+    "arco-design",
+    "vue",
+    "arco-pro",
+    "arco-pro-vue"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "automd && tsup-node",
+    "release": "vbumpp -r && pnpm build",
+    "update:deps": "taze major -w -i -a -r -f",
+    "clean:deps": "vfdel node_modules packages/*/node_modules playground/*/node_modules docs/node_modules",
+    "force:clean:deps": "vfdel pnpm-lock.yaml && pnpm clean:deps",
+    "force:install": "pnpm force:clean:deps && pnpm install"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@vrx-arco/pro-components": "^1.10.1",
+    "@vrx-arco/pro-layout": "^1.10.1",
+    "@vrx-arco/color-picker": "~0.0.1",
+    "unplugin-vue-components": ">=0.26.0"
+  },
+  "peerDependenciesMeta": {
+    "unplugin-vue-components": {
+      "optional": true
+    },
+    "@vrx-arco/color-picker": {
+      "optional": true
+    }
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "@vrx-arco/color-picker-import-resolver": "~0.0.1"
+  },
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.56.3",
+    "unplugin-vue-components": "^0.28.0",
+    "@types/node": "^22.10.3",
+    "@vill-v/bumpp-github": "^2.2.5",
+    "@vill-v/eslint-config": "^2.0.4",
+    "@vill-v/prettier-config": "^1.0.0",
+    "@vill-v/tsconfig": "^1.0.1",
+    "automd": "^0.3.12",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "taze": "^0.18.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  }
+}
