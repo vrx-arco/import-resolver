@@ -9,5 +9,7 @@ export default defineConfig({
   treeshake: true,
   format: ['esm'],
   publint: true,
-  unused: true,
+  unused: {
+    ignore: ['@vrx-arco/color-picker'],
+  },
 })
